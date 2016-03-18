@@ -1,0 +1,41 @@
+<template name="NavBar">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-content" aria-expanded="false">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/" class="navbar-brand">Developer Test Blog</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbar-content">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/">Home</a></li>
+                    {{#if currentUser}}
+					<li><a href="/addpost">Add Post</a></li>
+                    {{/if}}
+					<li><a href="/posts">Posts</a></li>
+					{{#if isInRole 'admin'}}
+						<li><a href="/admin">Admin Panel</a></li>
+                    {{else}}
+                        {{#if currentUser}}
+                        <li><a href="/control-panel">Control Panel</a></li>
+                        {{/if}}
+					{{/if}}
+
+				</ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {{#if currentUser}}
+                        <li><a href="#!">{{email}}</a></li>
+                        <li><a id="logout" href="/">Sign Out</a></li>
+                    {{else}}
+                        <li><a href="/sign-in">Sign In</a></li>
+                    {{/if}}
+                </ul>
+			</div>
+		</div>
+	</nav>
+</template>

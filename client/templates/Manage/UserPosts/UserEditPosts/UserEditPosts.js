@@ -1,0 +1,4 @@
+Template.UserEditPosts.events({
+
+});
+

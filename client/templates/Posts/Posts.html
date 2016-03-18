@@ -1,0 +1,21 @@
+<template name="Posts">
+	<div class="col-xs-12">
+		{{#each posts}}
+			{{>ShowPosts}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="ShowPosts">
+    <div class="col-xs-12 ool-md-6 col-lg-4">
+      <h2 class="text-center text-capitalize"><a href="{{pathFor route='post' slug=slug}}">{{title}}</a></h2>
+      <p class="text-center">{{content}}</p>
+        {{#if currentUser}}
+      <button class="btn btn-default center-block like"><span class="glyphicon glyphicon-heart-empty"></span> Like! </button>
+        {{/if}}
+        <p class="text-center">{{numLikes}} Likes</p>
+        {{#if currentUser}}
+        <p class="text-center"><strong>{{likesThis}}</strong></p>
+        {{/if}}
+    </div>
+</template>
