@@ -1,4 +1,5 @@
-Template.AdminEditPosts.events({
-
+AutoForm.addHooks('updatePostForm', {
+  onSuccess: function () {
+    Router.go('/admin/posts')
+  }
 });
-

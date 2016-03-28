@@ -1,4 +1,5 @@
-Template.UserEditPosts.events({
-
+AutoForm.addHooks('updatePostForm', {
+  onSuccess: function () {
+    Router.go('/manage/posts')
+  }
 });
-
